@@ -1,0 +1,45 @@
+# 标题
+title: "示例宝箱"
+
+locations:
+  - "world~100,100,100~EAST"
+  - "world~101,100,100~WEST"
+
+# 布局
+layout:
+  - "  A B C  "
+
+# 随机打乱的视图
+shuffled: true
+
+# 事件
+events: {}
+
+icons:
+  'A':
+    item:
+      material: STONE # source:IA:namespace_key
+      amount: 3
+      name: "&f测试物品"
+      lore:
+        - '[&f测试描述](b)'
+    # 物品概率配置
+    chance: 0.5 # 每个格子的这个物品有 chance 的概率出现
+  'B':
+    item:
+      material: STONE # source:IA:namespace_key
+      amount: 3
+      name: "&f测试物品2"
+      lore:
+        - '[&f测试描述](b)'
+    # 物品概率配置
+    chance: 0.5 # 每个格子的这个物品有 chance 的概率出现
+  'C':
+    item:
+      material: STONE # source:IA:namespace_key
+      amount: 3
+      name: "&f测试物品3"
+      lore:
+        - '[&f测试描述](b)'
+    # 物品概率配置
+    chance: 0.5 # 每个格子的这个物品有 chance 的概率出现
