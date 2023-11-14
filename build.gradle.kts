@@ -12,6 +12,7 @@ taboolib {
             name("嘿鹰")
         }
         dependencies {
+            name("ItemsAdder").optional(true)
             name("MMOItems").optional(true)
             name("MythicMobs").optional(true)
             name("Zaphkiel").optional(true)
@@ -37,6 +38,7 @@ taboolib {
 repositories {
     mavenCentral()
     maven("https://nexus.phoenixdevt.fr/repository/maven-public/") // MMOItems
+    maven("https://jitpack.io") // ItemsAdder
 }
 
 dependencies {
@@ -56,6 +58,7 @@ dependencies {
     compileOnly("com.electronwill.night-config:core:3.6.6")
     compileOnly("ink.ptms:Zaphkiel:2.0.14")
     compileOnly("net.Indyuce:MMOItems-API:6.9.5-SNAPSHOT")
+    compileOnly("com.github.LoneDev6:API-ItemsAdder:3.6.1")
 }
 
 tasks.withType<JavaCompile> {

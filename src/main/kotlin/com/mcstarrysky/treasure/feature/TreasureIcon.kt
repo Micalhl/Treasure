@@ -38,7 +38,7 @@ data class TreasureIcon(
         if (!mats.startsWith("source")) {
             return build ?: emptyItemStack
         }
-        val (_, type, value) = mats.split(":", limit = 3).map(String::lowercase)
+        val (_, type, value) = mats.split(":").map(String::lowercase)
         return Source.sources[type]?.build(item, value, player) ?: build ?: emptyItemStack
     }
 }
