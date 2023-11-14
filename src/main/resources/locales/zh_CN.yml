@@ -1,4 +1,4 @@
-prefix: '&8\[&f&l宝箱&8\] &f&l'
+prefix: '&8\[&f&l宝箱&8\] &r'
 command:
   helper:
     - ' '
@@ -40,3 +40,7 @@ command:
     change:
       description: '测试命令'
       usage: ''
+
+source:
+  exist: "无法重复挂钩 &c{plugin}"
+  done: "已挂钩软依赖 &c{plugin} &r并作为物品源"

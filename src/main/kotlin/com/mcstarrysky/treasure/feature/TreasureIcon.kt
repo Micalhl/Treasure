@@ -1,5 +1,8 @@
 package com.mcstarrysky.treasure.feature
 
+import com.mcstarrysky.starrysky.function.emptyItemStack
+import com.mcstarrysky.treasure.feature.source.Source
+import com.mcstarrysky.treasure.utils.replacePlaceholder
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
@@ -24,11 +27,18 @@ data class TreasureIcon(
     val chance: Double // 每次出现物品的概率
 ) {
 
-    fun build(player: Player): ItemStack {
-        // TODO: 物品源
-        return XItemStack.deserialize(item).modifyMeta<ItemMeta> {
-            setDisplayName(displayName.component().buildColored())
-            setLore(lore?.map { it.component().buildColored() } ?: emptyList())
+    fun build(player: Player?): ItemStack {
+        val mats = item["material"].toString()
+        val build = runCatching {
+            XItemStack.deserialize(item).modifyMeta<ItemMeta> {
+                setDisplayName(displayName.component().buildColored())
+                setLore(lore?.map { it.component().buildColored() } ?: emptyList())
+            }
+        }.getOrNull().also { item -> player?.let { item?.replacePlaceholder(it) } }
+        if (!mats.startsWith("source")) {
+            return build ?: emptyItemStack
         }
+        val (_, type, value) = mats.split(":", limit = 3).map(String::lowercase)
+        return Source.sources[type]?.build(item, value, player) ?: build ?: emptyItemStack
     }
 }

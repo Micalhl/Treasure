@@ -6,10 +6,21 @@ plugins {
 }
 
 taboolib {
+    description {
+        contributors {
+            name("米擦亮")
+            name("嘿鹰")
+        }
+        dependencies {
+            name("MythicMobs").optional(true)
+            name("Zaphkiel").optional(true)
+        }
+    }
     install("common")
     install("common-5")
     install("module-chat")
     install("module-configuration")
+    install("module-kether")
     install("module-nms")
     install("module-ui")
     install("module-nms-util")
@@ -19,6 +30,7 @@ taboolib {
 
     relocate("org.serverct.parrot.parrotx", "com.mcstarrysky.treasure.taboolib.module.parrotx")
     relocate("com.mcstarrysky.starrysky", "com.mcstarrysky.treasure.taboolib.module.starrysky")
+    relocate("ink.ptms.um","com.mcstarrysky.treasure.library.um")
 }
 
 repositories {
@@ -26,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    taboo("ink.ptms:um:1.0.0-beta-18")
+    taboo("ink.ptms:um:1.0.0-beta-34")
     compileOnly("ink.ptms:nms-all:1.0.0")
     compileOnly("ink.ptms.core:v11605:11605")
     compileOnly("ink.ptms.core:v11902:11902:mapped")
@@ -40,6 +52,7 @@ dependencies {
 
     // other
     compileOnly("com.electronwill.night-config:core:3.6.6")
+    compileOnly("ink.ptms:Zaphkiel:2.0.14")
 }
 
 tasks.withType<JavaCompile> {
