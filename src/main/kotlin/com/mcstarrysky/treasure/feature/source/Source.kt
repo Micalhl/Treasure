@@ -1,6 +1,7 @@
 package com.mcstarrysky.treasure.feature.source
 
 import com.mcstarrysky.starrysky.i18n.sendLang
+import com.mcstarrysky.treasure.feature.source.impl.SourceMMOItems
 import com.mcstarrysky.treasure.feature.source.impl.SourceMythic
 import com.mcstarrysky.treasure.feature.source.impl.SourceZaphkiel
 import org.bukkit.entity.Player
@@ -38,6 +39,7 @@ interface Source {
         @Awake(LifeCycle.ENABLE)
         fun register() {
             listOf(
+                SourceMMOItems(),
                 SourceMythic(),
                 SourceZaphkiel()
             ).forEach(Source::register)

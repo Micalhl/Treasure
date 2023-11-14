@@ -23,6 +23,7 @@ class SourceZaphkiel : Source {
     override val pluginName: String
         get() = "Zaphkiel"
 
+    // FIXME: 这里在考虑要不要把所有判断都改成直接反射检测类, 先这样吧
     override val isLoaded: Boolean
         get() = Bukkit.getPluginManager().getPlugin("Zaphkiel") != null
 
