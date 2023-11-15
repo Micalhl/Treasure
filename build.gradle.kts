@@ -15,6 +15,8 @@ taboolib {
             name("ItemsAdder").optional(true)
             name("MMOItems").optional(true)
             name("MythicMobs").optional(true)
+            name("NeigeItems").optional(true)
+            name("SplendidEnchants").optional(true)
             name("Zaphkiel").optional(true)
         }
     }
@@ -39,6 +41,7 @@ repositories {
     mavenCentral()
     maven("https://nexus.phoenixdevt.fr/repository/maven-public/") // MMOItems
     maven("https://jitpack.io") // ItemsAdder
+    maven("https://r.irepo.space/maven/") // NeigeItems
 }
 
 dependencies {
@@ -59,6 +62,8 @@ dependencies {
     compileOnly("ink.ptms:Zaphkiel:2.0.14")
     compileOnly("net.Indyuce:MMOItems-API:6.9.5-SNAPSHOT")
     compileOnly("com.github.LoneDev6:API-ItemsAdder:3.6.1")
+    compileOnly("pers.neige.neigeitems:NeigeItems:1.15.96")
+    compileOnly("public:SplendidEnchants:3.0.0-2")
 }
 
 tasks.withType<JavaCompile> {
