@@ -1,0 +1,35 @@
+# 重启服务器后消失， 但玩家重进服务器仍然存在 (?)
+Player-Chests:
+  # chest id
+  Example:
+      # 触发周期 每四分钟 一次
+    - cron: "0 0/4 * * * ? *" # https://cron.qqe2.com/
+      generator:
+        # 在玩家周围
+        type: "around"
+        # 半径 32 的范围
+        distance: 32
+        # 最多生成 3 个
+        amount: 3
+        # 每个临时存在 300秒
+        temp: 300
+      actions: |-
+        tell "已刷新在半径为32的附近"
+      # 每五分钟触发一次
+    - cron: "0 0/5 * * * ? *"
+      generator:
+        # 在玩家世界随机生成
+        type: "random"
+        # 最多生成三个
+        amount: 3
+        # 临时存在 300秒
+        temp: 300
+        # 只在以下地点随机刷新
+        positions:
+          - "world~100,100,100~EAST"
+          - "world~101,100,100~WEST"
+          - "world~103,100,100~WEST"
+          - "world~105,100,100~WEST"
+          - "world~107,100,100~WEST"
+      actions: |-
+        tell "已在随机地点刷新"
